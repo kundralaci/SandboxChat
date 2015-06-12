@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app='main'>
+  <head>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+    <script src="/main.js"></script>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  </head>
+  <body>
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+
+    <div class="container" ng-controller="mainController as ctrl">
+      <div class="row z-depth-1">
+        <div class="col s12">
+          <h3>Chat</h3>
+          <ul class="collection">
+            <li class="collection-item" ng-repeat="msg in messages">
+              <b>{{msg.name}}:</b> {{msg.text}}
+            </li>
+          </ul>
+          <input class="col s2" type="text" ng-model="name" placeholder="Enter a name here">
+          <input class="col s8" type="text" ng-model="text" placeholder="Write your message here">
+          <button class="col s2 btn waves-effect waves-light" type="submit" ng-click="ctrl.sendMessage()">Send
+            <i class="mdi-content-send right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row z-depth-1">
+        
+      </div>
+      <div class="row z-depth-1">
+        <div class="col s12">
+          <p>Counter: {{cnt}}</p>
+          <a class="btn-floating btn-large waves-effect waves-light red" ng-click="ctrl.makeApiCall()"><i class="mdi-content-add"></i></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
